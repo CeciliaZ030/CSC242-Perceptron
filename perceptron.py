@@ -148,12 +148,12 @@ def main():
     for i in range(train_ys.shape[0]):
         if train_xs[i].dot(norm_weights) < delta:
             delta = train_xs[i].dot(norm_weights)*train_ys[i]
-        if norm(train_xs[i] > maxNorm):
+        if norm(train_xs[i]) > maxNorm:
             maxNorm = norm(train_xs[i])
 
     print("R (maximun vector norm): ", maxNorm)
     print("δ^2 (minimun seperation): ", delta**2)
-    print("(R^2)/k =", maxNorm**2/ck)
+    print("(R^2)/k =", (maxNorm**2/ck)**0.5)
 
 
 
